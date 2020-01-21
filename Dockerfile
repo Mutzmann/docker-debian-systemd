@@ -11,7 +11,7 @@ ADD sources.list /etc/apt/sources.list
 # clean out, update and install some base utilities
 RUN apt-get -y update && apt-get -y upgrade && apt-get clean && \
 	apt-get -y install apt-utils lsb-release curl git cron at logrotate rsyslog \
-		lsof procps	initscripts libsystemd0 libudev1 systemd sysvinit-utils udev util-linux && \
+		lsof procps	initscripts libsystemd0 libudev1 systemd sysvinit-utils udev util-linux  resolvconf && \
 	sed -i '/imklog/{s/^/#/}' /etc/rsyslog.conf
 
 RUN cd /lib/systemd/system/sysinit.target.wants/ && \
